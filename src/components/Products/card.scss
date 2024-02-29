@@ -1,0 +1,46 @@
+.card {
+    border-radius: 16px;
+    text-align: center;
+    // width: 288px;
+    height: 332px;
+
+    &.card__mobile {
+        margin: 32px 32px 0 32px;
+        border-radius: 16px;
+        height: 332px;
+    }
+
+    img {
+        width: 192px;
+        height: 192px;
+        margin: 32px;
+    }
+
+    &.card--orange {
+        background-color: #FFF6CE;
+        color: #E76101;
+    }
+
+    &.card--blue {
+        background-color: #A2D7E7;
+        color: #0465AC;
+    }
+
+    &.card--green {
+        background-color: #ADEDB3;
+        color: #018D31;
+    }
+
+    &.card--grey {
+        background-color: #46454A;
+        color: #FFFFFF;
+
+        // img {
+        //     color: #D2CDEA;
+        // }
+    }
+}
+
+
+
+
