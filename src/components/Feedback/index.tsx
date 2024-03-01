@@ -1,30 +1,30 @@
-import { useState } from "react"
 import classnames from "classnames"
-
+import { FormProps } from "../../App"
 import './form.scss'
-interface FormProps {
-    name: string
-    phone: string
-    email: string
-    message: string
-}
 
 type FeedbackProps = {
+    data: {
+        name: string
+        phone: string
+        email: string
+        message: string
+    }
+    setData: React.Dispatch<React.SetStateAction<FormProps>>
     isMobile?: boolean
     isTablet?: boolean
 }
 
-const Feedback = ({ isMobile, isTablet }: FeedbackProps) => {
-    const [data, setData] = useState<FormProps>({
-        name: "",
-        phone: "",
-        email: "",
-        message: ""
-    })
+const Feedback = (props: FeedbackProps) => {
+    const { data, setData, isMobile, isTablet } = props
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setData(prev => ({ ...prev, [e.target.name]: e.target.value }))
     }
+
+    const disableSave = !data.name?.length
+        || !data.phone?.length
+        || !data.email?.length
+        || !data.message?.length
 
     return (
         <div className="section-right">
@@ -49,7 +49,7 @@ const Feedback = ({ isMobile, isTablet }: FeedbackProps) => {
                     <textarea id="message" name="message" className="form-control" value={data.message} onChange={handleChange} />
                 </div>
                 <div className="field__submit">
-                    <button className="btn" onClick={() => { }}>Submit</button>
+                    <button className="btn" onClick={() => { }} disabled={disableSave}>Submit</button>
                 </div>
             </form>
         </div>

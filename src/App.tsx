@@ -9,8 +9,21 @@ import Feedback from "./components/Feedback"
 
 import './assets/css/styles.scss'
 
+export type FormProps = {
+  name: string
+  phone: string
+  email: string
+  message: string
+}
+
 const App = () => {
-  const [activeTab, setActiveTab] = useState(PRODUCTS)
+  const [activeTab, setActiveTab] = useState<string>(PRODUCTS)
+  const [data, setData] = useState<FormProps>({
+    name: "",
+    phone: "",
+    email: "",
+    message: ""
+  })
 
   const breakpoint = useBreakpoint()
 
@@ -26,7 +39,7 @@ const App = () => {
 
   return (
     <div className={classnames("container", { "container__mobile": isMobile })}>
-      <div className="header">
+      <div className={classnames("header", { "header__mobile": isMobile || isTablet })}>
         <div
           id={PRODUCTS}
           className={classnames("tab tab__left", { 'tab--active': activeTab === PRODUCTS })}
@@ -48,15 +61,26 @@ const App = () => {
           "main__tablet": isTablet,
           "main__mobile": isMobile
         })}>
-      
+
         {(isMobile || isTablet) ?
           activeTab === PRODUCTS
-            ? <Products isMobile={isMobile} isTablet={isTablet} />
-            : <Feedback isMobile={isMobile} isTablet={isTablet} />
+            ? <Products
+              isMobile={isMobile}
+              isTablet={isTablet}
+            />
+            : <Feedback
+              data={data}
+              setData={setData}
+              isMobile={isMobile}
+              isTablet={isTablet}
+            />
           : (
             <>
-              <Products isMobile={isMobile} isTablet={isTablet} />
-              <Feedback isMobile={isMobile} isTablet={isTablet} />
+              <Products />
+              <Feedback
+                data={data}
+                setData={setData}
+              />
             </>
           )
         }
