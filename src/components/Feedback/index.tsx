@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react"
 import classnames from "classnames"
 import { FormProps } from "../../App"
 import './form.scss'
@@ -17,9 +18,19 @@ type FeedbackProps = {
 const Feedback = (props: FeedbackProps) => {
     const { data, setData, isMobile, isTablet } = props
 
+    const textAreaRef = useRef<HTMLTextAreaElement | null>(null)
+
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setData(prev => ({ ...prev, [e.target.name]: e.target.value }))
     }
+
+    useEffect(() => {
+        if (textAreaRef && textAreaRef.current) {
+            textAreaRef.current.style.height = "0px";
+            const scrollHeight = textAreaRef.current.scrollHeight;
+            textAreaRef.current.style.height = scrollHeight + "px";
+        }
+    }, [data.message])
 
     const disableSave = !data.name?.length
         || !data.phone?.length
@@ -46,7 +57,7 @@ const Feedback = (props: FeedbackProps) => {
                 </div>
                 <div className="field">
                     <label htmlFor="message">Message</label>
-                    <textarea id="message" name="message" className="form-control" value={data.message} onChange={handleChange} />
+                    <textarea id="message" name="message" ref={textAreaRef} rows={1} className="form-control" value={data.message} onChange={handleChange} />
                 </div>
                 <div className="field__submit">
                     <button className="btn" onClick={() => { }} disabled={disableSave}>Submit</button>

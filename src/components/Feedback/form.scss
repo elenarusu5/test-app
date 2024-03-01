@@ -3,7 +3,6 @@
         background-color: #FFFFFF;
         border-radius: 16px;
         margin: 32px;
-        // height: 85px;
         padding: 20px;
 
         label {
@@ -23,10 +22,15 @@
             font-size: 20px;
             line-height: 24px;
             border-bottom: 1px solid #EDEDED;
-            
+
             &:focus {
-                outline: 0;
+                outline: none;
             }
+        }
+
+        textarea {
+            resize: none;
+            outline: none;
         }
     }
 
@@ -68,6 +72,15 @@
             border-radius: 0;
             padding: 0;
         }
+
+        .field__submit {
+            .btn {
+                &:disabled {
+                    background-color: #F8F8F8;
+                    color: #909090;
+                }
+            }
+        }
     }
 
     &.form__tablet {
@@ -79,6 +92,11 @@
         .btn {
             background-color: #F8F8F8;
             width: 50%;
+
+            &:disabled {
+                background-color: #F8F8F8;
+                color: #909090;
+            }
         }
     }
 }
