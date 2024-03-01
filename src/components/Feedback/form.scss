@@ -23,19 +23,10 @@
             font-size: 20px;
             line-height: 24px;
             border-bottom: 1px solid #EDEDED;
-        }
-
-        .btn {
-            background-color: #FFFFFF;
-            border-radius: 16px;
-            height: 56px;
-            width: 100%;
-            color: #909090;
-            font-size: 20px;
-            font-weight: 400;
-            line-height: 24px;
-            text-align: center;
-            border: 0;
+            
+            &:focus {
+                border: 0;
+            }
         }
     }
 
@@ -47,24 +38,35 @@
             border-radius: 16px;
             height: 56px;
             width: 100%;
-            color: #909090;
+            color: #0080F6;
             font-size: 20px;
             font-weight: 400;
             line-height: 24px;
             text-align: center;
             border: 0;
-        }
 
+            &:hover {
+                background-color: #EEEEEE;
+                color: #0063BE;
+            }
+
+            &:focus,
+            &:active {
+                background-color: #F8F8F8;
+                border: 2px solid #0080F6;
+            }
+
+            &:disabled {
+                background-color: #F8F8F8;
+                color: #909090;
+            }
+        }
     }
 
     &.form__mobile {
         .field {
             border-radius: 0;
             padding: 0;
-        }
-
-        .btn {
-            background-color: #F8F8F8
         }
     }
 

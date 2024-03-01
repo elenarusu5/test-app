@@ -1,17 +1,28 @@
-import classnames from "classnames"
 import { useState } from "react"
+import classnames from "classnames"
 
 import './form.scss'
+interface FormProps {
+    name: string
+    phone: string
+    email: string
+    message: string
+}
 
-const Feedback = ({ isMobile, isTablet }) => {
-    const [data, setData] = useState({
+type FeedbackProps = {
+    isMobile?: boolean
+    isTablet?: boolean
+}
+
+const Feedback = ({ isMobile, isTablet }: FeedbackProps) => {
+    const [data, setData] = useState<FormProps>({
         name: "",
         phone: "",
         email: "",
         message: ""
     })
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setData(prev => ({ ...prev, [e.target.name]: e.target.value }))
     }
 
@@ -35,10 +46,10 @@ const Feedback = ({ isMobile, isTablet }) => {
                 </div>
                 <div className="field">
                     <label htmlFor="message">Message</label>
-                    <input type="text" id="message" name="message" className="form-control" value={data.message} onChange={handleChange} />
+                    <textarea id="message" name="message" className="form-control" value={data.message} onChange={handleChange} />
                 </div>
                 <div className="field__submit">
-                    <button className="btn" onClick={()=>{}}>Submit</button>
+                    <button className="btn" onClick={() => { }}>Submit</button>
                 </div>
             </form>
         </div>

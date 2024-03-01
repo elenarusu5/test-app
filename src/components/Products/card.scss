@@ -1,13 +1,37 @@
 .card {
     border-radius: 16px;
     text-align: center;
-    // width: 288px;
-    height: 332px;
+    width: 288px;
+    height: 380px;
+    margin: 16px 16px 16px 16px;
+
+    .name {
+        margin: 0;
+        font-size: 24px;
+        line-height: 32px;
+        font-weight: 600;
+    }
+
+    .description {
+        font-size: 20px;
+        line-height: 24px;
+    }
 
     &.card__mobile {
-        margin: 32px 32px 0 32px;
+        // margin: 32px 32px 0 32px;
         border-radius: 16px;
+        width: 256px;
         height: 332px;
+
+        .name {
+            font-size: 22px;
+            line-height: 24px;
+        }
+
+        .description {
+            font-size: 16px;
+            line-height: 20px;
+        }
     }
 
     img {
@@ -19,28 +43,36 @@
     &.card--orange {
         background-color: #FFF6CE;
         color: #E76101;
+
+        &:hover {
+            background-color: #FFF0B9;
+        }
     }
 
     &.card--blue {
         background-color: #A2D7E7;
         color: #0465AC;
+
+        &:hover {
+            background-color: #92D8FF;
+        }
     }
 
     &.card--green {
         background-color: #ADEDB3;
         color: #018D31;
+
+        &:hover {
+            background-color: #8FFB99;
+        }
     }
 
     &.card--grey {
         background-color: #46454A;
         color: #FFFFFF;
 
-        // img {
-        //     color: #D2CDEA;
-        // }
+        &:hover {
+            background-color: #3F3664;
+        }
     }
 }
-
-
-
-

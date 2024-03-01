@@ -1,4 +1,6 @@
 
+import { AIRPLANE, HELICOPTER, ROCKET, UFO } from '../../constants/constants';
+
 import airplane from '../../assets/images/img-airplane.svg';
 import helicopter from '../../assets/images/img-helicopter.svg';
 import rocket from '../../assets/images/img-rocket.svg';
@@ -6,10 +8,7 @@ import ufo from '../../assets/images/img-ufo.svg';
 
 type ProductCard = {
     type: string,
-    plus: boolean,
-    pro: boolean,
-    ultra: boolean,
-    description: string,
+    img: string,
     style: string
 }
 
@@ -17,35 +16,48 @@ type Cards = ProductCard[];
 
 export const cards: Cards = [
     {
-        type: helicopter,
-        plus: false,
-        pro: false,
-        ultra: false,
-        description: 'Sunny Orange',
+        type: HELICOPTER,
+        img: helicopter,
         style: 'orange'
     },
     {
-        type: airplane,
-        plus: true,
-        pro: false,
-        ultra: false,
-        description: 'Deep Blue',
+        type: AIRPLANE,
+        img: airplane,
         style: 'blue'
     },
     {
-        type: rocket,
-        plus: false,
-        pro: true,
-        ultra: false,
-        description: 'Floral Green',
+        type: ROCKET,
+        img: rocket,
         style: 'green'
     },
     {
-        type: ufo,
-        plus: false,
-        pro: false,
-        ultra: true,
-        description: 'Interstellar Grey',
+        type: UFO,
+        img: ufo,
         style: 'grey'
+    },
+    {
+        type: HELICOPTER,
+        img: helicopter,
+        style: 'green'
+    },
+    {
+        type: ROCKET,
+        img: rocket,
+        style: 'blue'
+    },
+    {
+        type: HELICOPTER,
+        img: helicopter,
+        style: 'blue'
+    },
+    {
+        type: ROCKET,
+        img: rocket,
+        style: 'orange'
+    },
+    {
+        type: AIRPLANE,
+        img: airplane,
+        style: 'green'
     },
 ];
