@@ -36,7 +36,7 @@ const App = () => {
       setActiveTab(target.id)
     }
   }
-console.log('test deploy')
+
   return (
     <div className={classnames("container", { "container__mobile": isMobile })}>
       <div className={classnames("header", { "header__mobile": isMobile || isTablet })}>
