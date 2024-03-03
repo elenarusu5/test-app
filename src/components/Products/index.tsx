@@ -1,5 +1,7 @@
 import { cards } from "./cards"
+
 import ProductCard from "./ProductCard"
+
 import './card.scss'
 
 type ProductsProps = {

@@ -1,6 +1,8 @@
 import { useEffect, useRef } from "react"
 import classnames from "classnames"
+
 import { FormProps } from "../../App"
+
 import './form.scss'
 
 type FeedbackProps = {
