@@ -1,5 +1,6 @@
 import classnames from 'classnames'
 import { AIRPLANE, BLUE, GREEN, ORANGE, ROCKET, UFO } from '../../constants/constants'
+import { ReactSVG } from 'react-svg'
 
 type ProductCardProps = {
     card: {
@@ -49,7 +50,8 @@ const ProductCard = (props: ProductCardProps) => {
                 'card--green': card.style === 'green',
                 'card--grey': card.style === 'grey',
             })}>
-            <img src={card.img} alt="image" />
+                <ReactSVG src={card.img}/>
+            {/* <img src={card.img} alt="image" /> */}
             <p className="name">{`myProduct ${cardName(card.type)}`}</p>
             <p className='description'>{cardDescription(card.style)}</p>
         </div>

@@ -34,7 +34,7 @@
         }
     }
 
-    img {
+    svg {
         width: 192px;
         height: 192px;
         margin: 32px;
@@ -47,6 +47,12 @@
         &:hover {
             background-color: #FFF0B9;
         }
+
+        svg {
+            path {
+                fill: #E76101;
+            }
+        }
     }
 
     &.card--blue {
@@ -55,6 +61,12 @@
 
         &:hover {
             background-color: #92D8FF;
+        }
+
+        svg {
+            path {
+                fill: #0465AC;
+            }
         }
     }
 
@@ -65,6 +77,12 @@
         &:hover {
             background-color: #8FFB99;
         }
+
+        svg {
+            path {
+                fill: #018D31;
+            }
+        }
     }
 
     &.card--grey {
@@ -73,6 +91,12 @@
 
         &:hover {
             background-color: #3F3664;
+        }
+
+        svg {
+            path {
+                fill: #D2CDEA;
+            }
         }
     }
 }
