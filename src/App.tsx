@@ -30,7 +30,7 @@ const App = () => {
   const isMobile = breakpoint === MOBILE
   const isTablet = breakpoint === TABLET
 
-  const handleChange = (e: React.MouseEvent<HTMLDivElement>) => {
+  const handleChange = (e: React.MouseEvent<HTMLButtonElement>) => {
     if (isMobile || isTablet) {
       const target = e.target as HTMLInputElement;
       setActiveTab(target.id)
@@ -39,20 +39,16 @@ const App = () => {
 
   return (
     <div className={classnames("container", { "container__mobile": isMobile })}>
-      <div className={classnames("header", { "header__mobile": isMobile || isTablet })}>
-        <div
-          id={PRODUCTS}
-          className={classnames("tab tab__left", { 'tab--active': activeTab === PRODUCTS })}
-          onClick={handleChange}
-        >
-          Products
+      <div className={classnames("header", {
+        "header__mobile": isMobile || isTablet,
+        "left--active": activeTab === PRODUCTS,
+        "right--active": activeTab === FEEDBACK
+      })}>
+        <div className={"tab tab__left"}>
+          <button id={PRODUCTS} onClick={handleChange}>Products</button>
         </div>
-        <div
-          id={FEEDBACK}
-          className={classnames("tab tab__right", { 'tab--active': activeTab === FEEDBACK })}
-          onClick={handleChange}
-        >
-          Feedback
+        <div className={"tab tab__right"}>
+          <button id={FEEDBACK} onClick={handleChange}>Feedback</button>
         </div>
       </div>
 
